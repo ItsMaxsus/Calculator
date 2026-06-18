@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Js Calculator 1</title>
+        <title>Js Calculator 1.4</title>
     </head>
     <style>
         #div1{
@@ -31,7 +31,7 @@
         }
         #pE{
             font-size: 20px;
-            color: white;
+            color: rgb(119, 144, 199);
         }
       
         #addBtn{
@@ -71,15 +71,15 @@
         }
 
         body{
-            background-color: rgb(0, 0, 0);
+            background-color:rgb(0, 0, 0);
             overflow: hidden;
         }
         #ansT{
             
-            color: rgb(47, 0, 255); 
-            
+            color: rgb(200, 255, 0); 
 
         }
+ 
         #version{
             position: fixed;
             bottom: 30px;
@@ -120,12 +120,13 @@
         <div id="div3">
             <h1 id="ansT">Answer</h1>
             <p id="pE">for exponent put the second box empty</p>
+            <button id="emptyBtn">Clear the boxes</button>
         </div>
 
         <div id="theme">
         <button id="themeB">Change theme</button>
             </div>
-        <p id="version">Version 1</p>
+        <p id="version">Version 1.4</p>
 
 
 
@@ -151,9 +152,13 @@
         document.getElementById("powrBtn")
         let expnBtn = 
         document.getElementById("expnBtn")
+        let emptyBtn = 
+        document.getElementById("emptyBtn")
         let body = 
         document.getElementById("body")
-        let nightmode = true;
+
+
+        let nightmode = 0;
 
         addBtn.onclick = function(){
             let ans = 
@@ -193,16 +198,34 @@
             ansT.textContent = "The answer is : " + ans;
             ansT.style.color = "rgb(255, 75, 216)"
         }
+        emptyBtn.onclick = function(){
+            inpt1.value = "";
+            inpt2.value = "";
+            ansT.textContent = "Answer";
+            ansT.style.color = "yellow";
+        }
 
         themeBtn.onclick = function(){
-            if(nightmode === true){
+            if(nightmode === 0){
             body.style.backgroundColor = "gray";
-            nightmode = false;
+            nightmode = 1;
+        }
+        else if(nightmode === 1){
+            body.style.backgroundColor = "white";
+            nightmode = 2;
+
+        }
+        else if(nightmode === 2){
+            body.style.backgroundColor = "rgb(72, 249, 255)";
+            nightmode = 3
+        }
+        else if(nightmode === 3){
+            body.style.backgroundColor = "rgb(255, 145, 145)";
+            nightmode = 4
         }
         else{
-            body.style.backgroundColor = "black";
-            nightmode = true;
-
+            nightmode = 0
+             body.style.backgroundColor = "black";
         }
     }
 
