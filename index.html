@@ -16,20 +16,46 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
-            
+            flex-direction: row;
+            gap: 5px;
+        }
+        #div3{
+            margin-top: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0px;
         }
         #addBtn{
-            width: 100px;
-            height: 70px;
-            background-color: rgb(255, 145, 145);
+            width: 60px;
+            height: 35px;
+            background-color: rgb(156, 255, 110);
         }
+        #minBtn{
+            width: 60px;
+            height: 35px;
+            background-color: rgb(255, 145, 145);
+
+        }
+        #multBtn{
+            width: 60px;
+            height: 35px;
+            background-color: rgb(4, 0, 255);
+
+        }
+        #diviBtn{
+            width: 60px;
+            height: 35px;
+            background-color: rgb(0, 217, 255);
+
+        }
+
         body{
             background-color: rgb(0, 0, 0);
             overflow: hidden;
         }
         #ansT{
-            color: rgb(0, 255, 42);
+            color: rgb(47, 0, 255);            
         }
         #version{
             position: fixed;
@@ -46,9 +72,10 @@
         border-radius: 999px;
         border: none;
         position: relative;
-        bottom: 250px;
+        bottom: 240px;
         left: 10px;
         }
+    
 
     </style>
 
@@ -61,12 +88,18 @@
         </div>
         <div id="div2">
             <button id="addBtn">ADD</button>
+            <button id="minBtn">Minus</button>
+            <button id="multBtn">Multiply</button>
+            <button id="diviBtn">Division</button>
+        </div>
+        <div id="div3">
             <h1 id="ansT">Answer</h1>
         </div>
+
         <div id="theme">
         <button id="themeB">Change theme</button>
             </div>
-        <p id="version">Version 0.1</p>
+        <p id="version">Version 0.5</p>
 
 
 
@@ -82,6 +115,12 @@
         document.getElementById("ansT");
         let themeBtn = 
         document.getElementById("themeB")
+        let minBtn = 
+        document.getElementById("minBtn");
+        let multBtn = 
+        document.getElementById("multBtn")
+        let diviBtn = 
+        document.getElementById("diviBtn")
         let body = 
         document.getElementById("body")
         let nightmode = true;
@@ -90,7 +129,27 @@
             let ans = 
             Number(inpt1.value) + Number(inpt2.value)
             ansT.textContent = "The answer is : " + ans;
+            ansT.style.color = "green";
 
+        }
+
+        minBtn.onclick = function(){
+            let ans = 
+            Number(inpt1.value) - Number(inpt2.value);
+            ansT.textContent = "The answer is : " + ans;
+            ansT.style.color = "red";
+        }
+        multBtn.onclick = function(){
+            let ans = 
+            Number(inpt1.value) * Number(inpt2.value);
+            ansT.textContent = "The answer is : " + ans;
+            ansT.style.color = "blue";
+        }
+        diviBtn.onclick = function(){
+            let ans = 
+            Number(inpt1.value) / Number(inpt2.value);
+            ansT.textContent = "The answer is : " + ans;
+            ansT.style.color = " rgb(0, 217, 255)"
         }
 
         themeBtn.onclick = function(){
