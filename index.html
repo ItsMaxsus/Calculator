@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Js Calculator 0.5</title>
+        <title>Js Calculator 1</title>
     </head>
     <style>
         #div1{
@@ -25,28 +25,48 @@
             justify-content: center;
             align-items: center;
             gap: 0px;
+            flex-direction: column;
+            
+            
         }
+        #pE{
+            font-size: 20px;
+            color: white;
+        }
+      
         #addBtn{
-            width: 60px;
+            width: 70px;
             height: 35px;
             background-color: rgb(156, 255, 110);
         }
         #minBtn{
-            width: 60px;
+            width: 70px;
             height: 35px;
             background-color: rgb(255, 145, 145);
 
         }
         #multBtn{
-            width: 60px;
+            width: 70px;
             height: 35px;
             background-color: rgb(4, 0, 255);
 
         }
         #diviBtn{
-            width: 60px;
+            width: 70px;
             height: 35px;
             background-color: rgb(0, 217, 255);
+
+        }
+        #powrBtn{
+            width: 70px;
+            height: 35px;
+            background-color: rgb(252, 191, 122);
+
+        }
+        #expnBtn{
+            width: 70px;
+            height: 35px;
+            background-color: rgb(255, 75, 216);
 
         }
 
@@ -55,7 +75,10 @@
             overflow: hidden;
         }
         #ansT{
-            color: rgb(47, 0, 255);            
+            
+            color: rgb(47, 0, 255); 
+            
+
         }
         #version{
             position: fixed;
@@ -75,7 +98,7 @@
         bottom: 240px;
         left: 10px;
         }
-    
+        
 
     </style>
 
@@ -91,15 +114,18 @@
             <button id="minBtn">Minus</button>
             <button id="multBtn">Multiply</button>
             <button id="diviBtn">Division</button>
+            <button id="powrBtn">Power</button>
+            <button id="expnBtn">Exponent</button>
         </div>
         <div id="div3">
             <h1 id="ansT">Answer</h1>
+            <p id="pE">for exponent put the second box empty</p>
         </div>
 
         <div id="theme">
         <button id="themeB">Change theme</button>
             </div>
-        <p id="version">Version 0.5</p>
+        <p id="version">Version 1</p>
 
 
 
@@ -121,6 +147,10 @@
         document.getElementById("multBtn")
         let diviBtn = 
         document.getElementById("diviBtn")
+        let powrBtn = 
+        document.getElementById("powrBtn")
+        let expnBtn = 
+        document.getElementById("expnBtn")
         let body = 
         document.getElementById("body")
         let nightmode = true;
@@ -150,6 +180,18 @@
             Number(inpt1.value) / Number(inpt2.value);
             ansT.textContent = "The answer is : " + ans;
             ansT.style.color = " rgb(0, 217, 255)"
+        }
+        powrBtn.onclick = function(){
+            let ans = 
+            Number(inpt1.value) ** Number(inpt2.value);
+            ansT.textContent = "The answer is : " + ans;
+            ansT.style.color = "rgb(252, 191, 122)"
+        }
+        expnBtn.onclick = function(){
+            let ans = 
+            Math.sqrt(Number(inpt1.value));
+            ansT.textContent = "The answer is : " + ans;
+            ansT.style.color = "rgb(255, 75, 216)"
         }
 
         themeBtn.onclick = function(){
